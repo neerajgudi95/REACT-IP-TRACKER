@@ -48,3 +48,9 @@ h1 {
   cursor: pointer;
   height: 100%;
 }
+
+.error {
+  margin-top: 10px;
+  color: red;
+  font-weight: bolder;
+}

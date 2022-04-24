@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 
 const Header = ({ getIpAddress }) => {
   const ipInputRef = useRef("");
-  const [invalidIPCheck, setInvalidIPCheck] = useState(false);
+  const [invalidIPCheck, setInvalidIPCheck] = useState();
 
   const validateIp = (ip) => {
     return ip.split(".").length === 4 ? true : false;
@@ -11,9 +11,16 @@ const Header = ({ getIpAddress }) => {
   const submitIpAddress = (e) => {
     e.preventDefault();
     let ip = ipInputRef.current.value;
-    validateIp(ip) ? getIpAddress(ip) : setInvalidIPCheck(true);
-    ipInputRef.current.value = "";
+    if (validateIp(ip)) {
+      setInvalidIPCheck(false);
+      getIpAddress(ip);
+      ipInputRef.current.value = "";
+    } else {
+      setInvalidIPCheck(true);
+    }
   };
+
+  const validIpTemplate = invalidIPCheck && "Please enter a valid IP address";
 
   return (
     <div className={styles.header}>
@@ -30,6 +37,7 @@ const Header = ({ getIpAddress }) => {
           </button>
         </form>
       </div>
+      <p className={styles.error}>{validIpTemplate}</p>
     </div>
   );
 };
