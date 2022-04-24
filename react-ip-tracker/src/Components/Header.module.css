@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 0.3;
+  background-image: url("../images/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Rubik", sans-serif;
+  position: relative;
+}
+
+h1 {
+  color: white;
+  margin: -50px 0 10px 0;
+}
+
+.ip_input form {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  width: 350px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.ip_input input {
+  padding: 10px;
+  flex: 0.9;
+  border: none;
+  outline: none;
+}
+::placeholder {
+  color: var(--Dark-Gray);
+}
+
+.ip_input .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0.1;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  height: 100%;
+}
