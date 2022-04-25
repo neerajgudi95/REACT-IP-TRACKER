@@ -5,13 +5,13 @@ const Header = ({ getIpAddress }) => {
   const ipInputRef = useRef("");
   const [invalidIPCheck, setInvalidIPCheck] = useState();
 
-  const validateIp = (ip) => {
+  const validateIpAddr = (ip) => {
     return ip.split(".").length === 4 ? true : false;
   };
   const submitIpAddress = (e) => {
     e.preventDefault();
     let ip = ipInputRef.current.value;
-    if (validateIp(ip)) {
+    if (validateIpAddr(ip)) {
       setInvalidIPCheck(false);
       getIpAddress(ip);
       ipInputRef.current.value = "";
