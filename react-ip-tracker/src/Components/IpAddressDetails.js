@@ -4,7 +4,6 @@ import IpData from "./IpData";
 import Loader from "./Loader";
 
 const IpAddressDetails = ({ ipAddrDetails }) => {
-  console.log(ipAddrDetails);
   const ipGiven = ipAddrDetails.ip || "NA";
   const ipLocation =
     Object.keys(ipAddrDetails).length === 0

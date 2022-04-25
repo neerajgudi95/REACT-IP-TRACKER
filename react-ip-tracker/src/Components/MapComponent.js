@@ -1,16 +1,21 @@
 import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-
+// import { Icon } from "leaflet";
 const MapComponent = ({ latitude, longitude }) => {
-  console.log(latitude, longitude);
   const position = [latitude, longitude];
+  console.log([latitude, longitude]);
   return (
     <MapContainer
       center={position}
-      zoom={13}
+      zoom={5}
       scrollWheelZoom={false}
-      style={{ width: "100%", height: "900px", flex: 0.7, zIndex: -1 }}
+      style={{
+        width: "100%",
+        height: "100vh",
+        flex: 0.7,
+        zIndex: -1,
+        minWidth: "100vw",
+      }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

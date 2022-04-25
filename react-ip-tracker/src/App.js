@@ -4,8 +4,6 @@ import Header from "./Components/Header";
 import IpAddressDetails from "./Components/IpAddressDetails";
 import MapComponent from "./Components/MapComponent";
 
-let lat = 0,
-  lng = 0;
 function App() {
   const [ipAddr, setIpAddr] = useState(null);
   const [ipAddrDetails, setIpAddrDetails] = useState({});
@@ -18,11 +16,14 @@ function App() {
   let URL = `https://geo.ipify.org/api/v1?apiKey=${api_key}&ipAddress=`;
   useEffect(() => {
     ipAddr !== null && fetchIPDetails(`${URL}${ipAddr}`);
-    if (Object.keys(ipAddrDetails).length !== 0) {
-      lat = ipAddrDetails.location.lat;
-      lng = ipAddrDetails.location.lng;
-    }
   }, [ipAddr, URL]);
+
+  let lat = 0,
+    lng = 0;
+  if (Object.keys(ipAddrDetails).length !== 0) {
+    lat = ipAddrDetails.location.lat;
+    lng = ipAddrDetails.location.lng;
+  }
   return (
     <div className="app">
       <Header getIpAddress={setIpAddr} />
